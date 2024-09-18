@@ -9,8 +9,14 @@
 
         async function run() {
             await init();
-            const result = add(5, 3);
-            document.getElementById('result').innerText = `5 + 3 = ${result}`;
+        }
+
+        // Define the calculate function in the global scope
+        window.calculate = async function() {
+            const a = parseInt(document.getElementById('inputA').value);
+            const b = parseInt(document.getElementById('inputB').value);
+            const result = add(a, b);
+            document.getElementById('result').innerText = `${a} + ${b} = ${result}`;
         }
 
         run();
@@ -18,6 +24,10 @@
 </head>
 <body>
     <h1>WebAssembly with Rust</h1>
+    <p>Adding to numbers:</p>
+    <input type="number" id="inputA" placeholder="Enter first number" />
+    <input type="number" id="inputB" placeholder="Enter second number" />
+    <button onclick="calculate()">Calculate</button>
     <p id="result">Result will appear here.</p>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasm Add Example</title>
+    <script type="module">
+        import init, { add } from '../pkg/wasm_add.js';
+
+        async function run() {
+            await init();
+            const result = add(5, 3);
+            document.getElementById('result').innerText = `5 + 3 = ${result}`;
+        }
+
+        run();
+    </script>
+</head>
+<body>
+    <h1>WebAssembly with Rust</h1>
+    <p id="result">Result will appear here.</p>
+</body>
+</html>
